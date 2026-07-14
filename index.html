@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petición Especial</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fedcfe 0%, #dee2ff 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            text-align: center;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 85%;
+        }
+        h1 {
+            color: #4a4e69;
+            font-size: 24px;
+            margin-bottom: 25px;
+        }
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            position: relative;
+            height: 50px;
+            margin-top: 20px;
+        }
+        button {
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        #btnSi {
+            background-color: #4caf50;
+            color: white;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+        }
+        #btnSi:active {
+            transform: scale(0.95);
+        }
+        #btnNo {
+            background-color: #f44336;
+            color: white;
+            position: absolute;
+            box-shadow: 0 4px 15px rgba(244, 67, 54, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>¿Me pasas tu Insta? 😊</h1>
+        <div class="btn-container">
+            <button id="btnSi" onclick="aceptar()">Sí</button>
+            <button id="btnNo" onmouseover="moverBotonNo()" onclick="moverBotonNo()">No</button>
+        </div>
+    </div>
+
+    <script>
+        // Configura aquí tu usuario de Instagram
+        const usuarioInstagram = "big_3zy"; 
+
+        // Al presionar SÍ, redirige a tu Instagram
+        function aceptar() {
+            window.location.href = https://instagram.com/_u/${usuarioInstagram};
+        }
+
+        // Si intenta tocar el NO, el botón huye
+        function moverBotonNo() {
+            const btnNo = document.getElementById('btnNo');
+            
+            // Genera posiciones aleatorias dentro de la pantalla
+            const x = Math.random() * (window.innerWidth - btnNo.offsetWidth - 40);
+            const y = Math.random() * (window.innerHeight - btnNo.offsetHeight - 40);
+            
+            // Saca el botón de su contenedor original y lo mueve por la pantalla
+            btnNo.style.position = 'fixed';
+            btnNo.style.left = x + 'px';
+            btnNo.style.top = y + 'px';
+        }
+    </script>
+
+</body>
+</html>
